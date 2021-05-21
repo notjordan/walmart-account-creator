@@ -62,3 +62,35 @@ except:
 #Completion  Sound.
 from playsound import playsound
 playsound ('sound.mp3')
+
+
+#Webhook (DISCORD ONLY)
+from discord_webhook import DiscordWebhook, DiscordEmbed
+import requests
+
+webhook = DiscordWebhook(url='https://discord.com/api/webhooks/831696662023241748/xbPfCzUgKbFmsvpCK1UQ8wKekPo_EwkOf9T2ymWFXBK4NIIK4LSYc5xY6RhYq3HdGBEj')
+
+# create embed object for webhook
+embed = DiscordEmbed(title='Walmart account created', color='03b2f8')
+
+embed.add_embed_field(name='Log in:', value='**[Try to log in](https://www.walmart.com/account/login?ref=domain)**')
+
+# set footer
+embed.set_footer(text='Made By roro#9999', icon_url='https://verified-badge.vedb.me/wp-content/uploads/2020/07/Facebook-Logo-Verified-Badge-PNG.png')
+
+# set timestamp (default is now)
+embed.set_timestamp()
+
+# add fields to embed
+
+
+# add embed object to webhook
+webhook.add_embed(embed)
+
+response = webhook.execute()
+
+
+try:
+  print('Sent Webhook! ')
+except:
+  print("Failed to sent Webhook!")
